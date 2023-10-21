@@ -915,7 +915,12 @@ ModelImporter:
   - first:
       137: 13700002
     second: marcus.low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: markus
+    second: {fileID: 2100000, guid: 3d50981f52d0547438905e9c4ab4b639, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

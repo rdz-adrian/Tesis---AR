@@ -10,7 +10,7 @@ public class PrimaryImageTarget : MonoBehaviour
         moveToSecondaryPosition = false;
     }
 
-   
+
     void Update()
     {
         //TODO: Quitar esto
