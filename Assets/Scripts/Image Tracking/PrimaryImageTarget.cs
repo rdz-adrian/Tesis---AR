@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class PrimaryImageTarget : MonoBehaviour
 {
-    public bool moveToSecondaryPosition;
+    public bool moveToPicturePosition;
     void Start()
     {
-        moveToSecondaryPosition = false;
+        moveToPicturePosition = false;
     }
 
 
     void Update()
     {
-        //TODO: Quitar esto
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            moveToSecondaryPosition = !moveToSecondaryPosition;
-        }
+        
     }
 
 }

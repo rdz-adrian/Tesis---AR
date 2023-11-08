@@ -1,18 +1,28 @@
+using easyar;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecondaryImageTarget : MonoBehaviour, ITargetEvents
+public class SecondaryImageTarget : MonoBehaviour
 {
-    [SerializeField] private PrimaryImageTarget script;
+    private GameController GC;
+    private ImageTargetController imageTracker;
 
-    void ITargetEvents.OnTargetFound()
+    private void Start()
     {
-        script.moveToSecondaryPosition = true;
+        GC = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        imageTracker = GetComponent<ImageTargetController>();
+        imageTracker.TargetLost += OnTargetLost;
+        imageTracker.TargetFound += OnTargetFound;
+    }
+    private void OnTargetLost()
+    {
+
+        GC.moveToPicturePosition = false;
     }
 
-    void ITargetEvents.OnTargetLost()
+    private void OnTargetFound()
     {
-        script.moveToSecondaryPosition = false;
+        GC.moveToPicturePosition = true;
     }
 }

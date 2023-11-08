@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Note: The child object of the Image Target, the first script
+// Note: The child object of the Image Target, the first GC
 // should implement the ITargetEvents interface.
 
 public class ImageTargetEventsHandler : MonoBehaviour
@@ -27,7 +27,7 @@ public class ImageTargetEventsHandler : MonoBehaviour
 
         if (targetScript == null)
         {
-            Debug.LogError("Target script is not assigned in OnFoundLostTarget..");
+            Debug.LogError("Target GC is not assigned in OnFoundLostTarget..");
             return;
         }
 
