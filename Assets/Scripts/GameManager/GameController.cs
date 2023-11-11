@@ -19,13 +19,14 @@ public class GameController : MonoBehaviour
 
     [Header("Characters")]
     [SerializeField] GameObject[] characters;
-    [SerializeField] private GameObject currentCharacter;
+
 
     [Header("Camera")]
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private float captureTimerConstant = 5f;
     [SerializeField] private GameObject messagesContainer;
 
+    private GameObject currentCharacter;
     private bool pictureCaptured = false;
     private float captureTimer;
     private float startTime = 0;
@@ -40,6 +41,8 @@ public class GameController : MonoBehaviour
         isCapturing = false;
         timerText.text = captureTimerConstant.ToString();
         captureTimer = captureTimerConstant;
+
+        onReachedOutScreenPosition();
     }
 
     void Update()
@@ -118,7 +121,7 @@ public class GameController : MonoBehaviour
             float randomFloat = UnityEngine.Random.Range(-1f, 1f);
             int randomIndex = GetRandomIndex();
 
-            currentCharacter.SetActive(false);
+            if (currentCharacter != null) currentCharacter.SetActive(false);
             pictureCaptured = false;
 
             currentCharacter = characters[randomIndex];
