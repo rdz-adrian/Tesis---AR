@@ -67,10 +67,22 @@ public class GameController : MonoBehaviour
 
         if (pictureCaptured)
         {
-            StartCoroutine(DelayedAction(() =>
+            if (!currentChScript.moveToOutOfViewPosition)
             {
-                currentChScript.moveToOutOfViewPosition = true;
-            }, 1.5f));
+                StartCoroutine(DelayedAction(() =>
+                {
+                    currentChScript.moveToOutOfViewPosition = true;
+                    currentChScript.moveToPicturePosition = false;
+                    currentChScript.moveToInitialPosition = false;
+
+                }, 1.5f));
+            }
+            else
+            {
+                currentChScript.moveToPicturePosition = false;
+                currentChScript.moveToInitialPosition = false;
+            }
+
         }
 
         //---------------TODO: Quitar lo de presionar la tecla 

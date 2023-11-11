@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     public Transform initialPosition;
 
     [SerializeField] private float speed = 1f;
-    [SerializeField] private float smoothRotationSpeed = 0.5f;
+    [SerializeField] private float smoothRotationSpeed = 8f;
     [SerializeField] private int posesCount = 0;
 
     [Header("Animation Parameters Name")]
