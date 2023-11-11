@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour
     private bool isCapturing;
     private CameraCapture cameraCap;
 
+    List<int> usedIndices = new List<int>();
+
     void Start()
     {
         cameraCap = GetComponent<CameraCapture>();
@@ -112,20 +114,9 @@ public class GameController : MonoBehaviour
 
         if (characters.Length > 0)
         {
+            // Este float es para que vaya para la derecha o izquierda
             float randomFloat = UnityEngine.Random.Range(-1f, 1f);
-            int randomIndex = -1;
-            while (randomIndex < 0)
-            {
-                randomIndex = UnityEngine.Random.Range(0, characters.Length);
-                if (characters[randomIndex].activeSelf) randomIndex = -1;
-            }
-
-            //--------------TODO------------------
-            /*
-             setear las posiciones para ver si va para la posicion inicial o no
-            y los otros parametros para que no ande mareado, tmb cambiar los nombres de 
-            las animaciones y para los puntos que va a caminar
-             */
+            int randomIndex = GetRandomIndex();
 
             currentCharacter.SetActive(false);
             pictureCaptured = false;
@@ -152,6 +143,27 @@ public class GameController : MonoBehaviour
             else currentChScript.moveToInitialPosition = true;
 
         }
+
+    }
+
+    int GetRandomIndex()
+    {
+
+        int randomIndex = -1;
+
+        while (randomIndex < 0 || usedIndices.Contains(randomIndex))
+        {
+            randomIndex = UnityEngine.Random.Range(0, characters.Length);
+        }
+
+        usedIndices.Add(randomIndex);
+
+        if (usedIndices.Count == characters.Length)
+        {
+            usedIndices.Clear();
+        }
+
+        return randomIndex;
 
     }
 

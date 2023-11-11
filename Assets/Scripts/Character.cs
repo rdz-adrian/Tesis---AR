@@ -38,10 +38,6 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("move to initial position " + moveToInitialPosition);
-        Debug.Log("move to out position " + moveToOutOfViewPosition);
-        Debug.Log("move to picture position " + moveToPicturePosition);
-
         checkMovement();
     }
 
@@ -56,8 +52,6 @@ public class Character : MonoBehaviour
             if (distance <= threshold)
             {
                 moveToOutOfViewPosition = false;
-                //todo: resetear parametros para cuando vuelva a salir salga en el 
-                //spawn position con todo funcionando bien
                 GC.onReachedOutScreenPosition();
             }
             else WalkingTo(outOfViewPosition);

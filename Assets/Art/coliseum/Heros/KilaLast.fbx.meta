@@ -378,7 +378,17 @@ ModelImporter:
   - first:
       137: 13700002
     second: Kila.000
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.011
+    second: {fileID: 2100000, guid: 38cc86f48ac83ac4aaf831e06617b40f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.013
+    second: {fileID: 2100000, guid: 34deb4fe646dca14390aa0daf5d726f2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
